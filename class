@@ -1,0 +1,39 @@
+public static int CountOffDays (DateTime start,DateTime end)
+        {
+            int res = 0;
+            DateTime dt;
+            dt = start;
+            while (dt <= end)
+            {
+                if (dt.DayOfWeek == DayOfWeek.Friday || dt.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    res = 1 + res;
+                   
+                }
+                dt = dt.AddDays(1);
+
+            }
+            return res;
+        }
+
+        public static DateTime[] OffDays(DateTime start, DateTime end)
+        {
+            //int ii = CountOffDays(start,end);
+            DateTime[] res = new DateTime[CountOffDays(start, end)];
+            DateTime dt;int i = 0;
+            dt = start;
+            while (dt <= end)
+            {
+                if (dt.DayOfWeek == DayOfWeek.Friday || dt.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    
+                    res[i] = dt;
+                    i = i + 1;
+                    
+                }
+                dt = dt.AddDays(1);
+                
+
+            }
+            return res;
+        }
